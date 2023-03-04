@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head><title> Tarix 2-ci hissə </title>  </head>
-<iframe type="application/pdf" src="CAVABLAR.pdf" style="width:100%; height:620px"></ifrane>
+    <script src="https://docs.google.com> </script>
+
+                                                                            
+
+    
+
+<body>
+    <canvas
+    <script>
+        pdfjsLib.getDocument(" ./CAVABLAR.pdf'). then(doc => {
+             console. log("This file has в + doc._pdfInfo.numPages +  " pages");
+            doc.getPage(2). then n(page =>
+                 var myCanvas = document.getElementById("my_canvas");
+                 var context = nyCanvas.getContext(26);;
+                 var viewport = page. getViewport(2)
+                myCanvas.width = viewport.width;
+                myCanvas.height = viewport. height;
+                 page. render({
+                     canvasContext: context,
+                     viewport: viewport
+                 });
+             ));
+         });
+                                                                                              
+
 
 </html>

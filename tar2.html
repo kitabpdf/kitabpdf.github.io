@@ -2,13 +2,41 @@
 <html>
     <head><title> Tarix 2-ci hissə </title>  </head>
  
-<div id="example1"></div>
-	<script src="/js/pdfobject.js"></script>
-<script>PDFObject.embed("CAVABLAR.pdf", "#example1");</script>
-	<style>
-.pdfobject-container { height: 30rem; border: 1rem solid rgba(0,0,0,.1); }
-</style>
- 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <style>
+    #pdf-container {
+      border: 1px solid black;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="pdf-container"></div>
+  <script>
+    const url = 'https://cdn.mozilla.net/pdfjs/tracemonkey.pdf';
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+    pdfjsLib.getDocument(CAVABLAR.pdf).promise.then(pdf => {
+      const pageNumber = 1;
+      pdf.getPage(pageNumber).then(page => {
+        const scale = 1.5;
+        const viewport = page.getViewport({scale: scale});
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        document.getElementById('pdf-container').appendChild(canvas);
+        page.render({
+          canvasContext: context,
+          viewport: viewport
+        });
+      });
+    });
+  </script>
+</body>
+
+
                                                                                               
 
 

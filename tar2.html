@@ -17,7 +17,7 @@
     const url = 'https://cdn.mozilla.net/pdfjs/tracemonkey.pdf';
     const pdfjsLib = window['pdfjs-dist/build/pdf'];
 
-    pdfjsLib.getDocument(CAVABLAR.pdf).promise.then(pdf => {
+    pdfjsLib.getDocument("./CAVABLAR.pdf").promise.then(pdf => {
       const pageNumber = 1;
       pdf.getPage(pageNumber).then(page => {
         const scale = 1.5;

@@ -2,71 +2,38 @@
 <html>
     <head><title> Tarix 2-ci hissə </title>  </head>
  
-
- <style>
-canvas{
-border: 1px solid #000
-}
-</style>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #pdf {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
 <body>
-<button id="prev">Prev</button>
-<button id="next">Next</button>
-<span id="npages">not yet</span>
-<div>
-<canvas id="cnv"></canvas>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"></script>
-<script src="./app.js"></script>
-    const PDFStart = nameRoute => {
-}
-const startPdf = () => {
-PDFStart('..CAVABLAR.pdf')
-}
-window.addEventListener('load', startPdf);
-    let loadingTask = pdfjsLib.getDocument(nameRoute),
-pdfDoc = null,
-canvas = document.querySelector('#cnv'),
-ctx = canvas.getContext('2d'),
-scale = 1.5,
-numPage = 1;
-    loadingTask.promise.then(pdfDoc_ => {
-pdfDoc = pdfDoc_;
-document.querySelector('#npages').innerHTML = pdfDoc.numPages;
-GeneratePDF(numPage)
-});
-    const GeneratePDF = numPage => {
-pdfDoc.getPage(numPage).then(page => {
-let viewport = page.getViewport({ scale: scale });
-canvas.height = viewport.height;
-canvas.width = viewport.width;
-let renderContext = {
-canvasContext : ctx,
-viewport:  viewport
-}
-page.render(renderContext);
-})
-document.querySelector('#npages').innerHTML = numPage;
-}
-    document.querySelector('#prev').addEventListener('click', PrevPage)
-document.querySelector('#next').addEventListener('click', NextPage)
-    const PrevPage = () => {
-if(numPage === 1){
-return
-}
-numPage--;
-GeneratePDF(numPage);
-}
-    const NextPage = () => {
-if(numPage >= pdfDoc.numPages){
-return
-}
-numPage++;
-GeneratePDF(numPage);
-}
-    </div>
+  <div id="pdf"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+  <script>
+    const url = 'CAVABLAR.pdf';
+    const container = document.getElementById('pdf');
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      for (let i = 1; i <= pdf.numPages; i++) {
+        pdf.getPage(i).then(page => {
+          const viewport = page.getViewport({scale: 1});
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          container.appendChild(canvas);
+          page.render({canvasContext: context, viewport: viewport});
+        });
+      }
+    });
+  </script>
 </body>
-
-
                                                                                               
 
 

@@ -4,9 +4,44 @@
         
         <title>Riyaziyyat 2-ci hissə</title>
     </head>
-    <body>
-        
-            <embed src="DİM test toplusu 2-ci hissə 2019.pdf#toolbar=0" type="application/pdf" width="100%" height="600px" />
-     
-    </body>
+    
+    DİM test toplusu 2-ci hissə 2019
+    
+    
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #pdf {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="pdf"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+  <script>
+    const url = 'DİM test toplusu 2-ci hissə 2019.pdf';
+    const container = document.getElementById('pdf');
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      for (let i = 1; i <= pdf.numPages; i++) {
+        pdf.getPage(i).then(page => {
+          const viewport = page.getViewport({scale: 1});
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          container.appendChild(canvas);
+          page.render({canvasContext: context, viewport: viewport});
+        });
+      }
+    });
+  </script>
+</body>
+
+
+    
 </html>

@@ -8,14 +8,13 @@ canvas{
 border: 1px solid #000
 }
 </style>
-</head>
 <body>
 <button id="prev">Prev</button>
 <button id="next">Next</button>
 <span id="npages">not yet</span>
 <div>
 <canvas id="cnv"></canvas>
-</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"></script>
 <script src="./app.js"></script>
     const PDFStart = nameRoute => {
@@ -64,6 +63,7 @@ return
 numPage++;
 GeneratePDF(numPage);
 }
+    </div>
 </body>
 
 

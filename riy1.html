@@ -39,14 +39,20 @@
         });
       }
     });
+      window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+
       
-       $(window).on("load",function(){
-          $(".loader-wrapper").fadeOut("slow");
-        });
+       
   </script>
-    <div class="loader-wrapper">
-      <span class="loader"><span class="loader-inner"></span></span>
-    </div>
+    <div class="loader"></div>
    
 </body>
      

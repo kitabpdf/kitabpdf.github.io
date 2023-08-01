@@ -1,67 +1,56 @@
-.preloader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #0f0f0f;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 400ms;
-    z-index: 2000;
+body {
+  margin: 0;
+  padding: 0;
+  width:100vw;
+  height: 100vh;
+  background-color: #eee;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+}
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #242f3f;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
 }
 
-.preloader.hide {
-    opacity: 0;
-    pointer-events: none;
+@keyframes loader {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(180deg);}
+  50% { transform: rotate(180deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
 }
 
-.preloader .preloader-text {
-    color: #838383;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    font-size: 15px;
+@keyframes loader-inner {
+  0% { height: 0%;}
+  25% { height: 0%;}
+  50% { height: 100%;}
+  75% { height: 100%;}
+  100% { height: 0%;}
 }
-
-.preloader .dots-container {
-    display: flex;
-    margin-bottom: 48px;
-}
-
-.preloader .dot {
-    background: red;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-
-.preloader .dot.red {
-    background: #ef476f;
-    animation: bounce 1000ms infinite;
-}
-
-.preloader .dot.green {
-    background: #06d6a0;
-    animation: bounce 1000ms infinite;
-    animation-delay: 200ms;
-}
-
-.preloader .dot.yellow {
-    background: #ffd166;
-    animation: bounce 1000ms infinite;
-    animation-delay: 400ms;
-}
-
-@keyframes bounce {
-    50% {
-        transform: translateY(16px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-

@@ -39,20 +39,31 @@
         });
       }
     });
-      window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
+      const preloader = document.querySelector(".preloader");
+const preloaderDuration = 500;
 
-  loader.classList.add("loader--hidden");
+const hidePreloader = () => {
+    setTimeout(() => {
+        preloader.classList.add("hide");
+    }, preloaderDuration);
+}
 
-  loader.addEventListener("transitionend", () => {
-    document.body.removeChild(loader);
-  });
-});
-
+window.addEventListener("load", hidePreloader);
       
        
   </script>
-    <div class="loader"></div>
+  <div class="preloader">
+
+        <div class="dots-container">
+            <div class="dot red"></div>
+            <div class="dot green"></div>
+            <div class="dot yellow"></div>
+        </div>
+
+        <div class="preloader-text">
+            Loading...
+        </div>
+    </div>
    
 </body>
      

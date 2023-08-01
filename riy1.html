@@ -46,9 +46,16 @@
       <span class="loader"><span class="loader-inner"></span></span>
     </div>
      <script>
-        $(window).on("load",function(){
-          $(".loader-wrapper").fadeOut("slow");
-        });
+         window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader-wrapper");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+        
     </script>
 </body>
      

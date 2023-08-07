@@ -41,7 +41,7 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
 
 
-HTML CSS Result Skip Results Iframe
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -53,10 +53,8 @@ HTML CSS Result Skip Results Iframe
 
 body {
   display: flex;
-  background: #333;
   justify-content: flex-end;
   align-items: flex-end;
-  min-height: 100vh;
 }
 
 .footer {

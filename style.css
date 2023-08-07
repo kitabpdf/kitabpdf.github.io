@@ -1,5 +1,4 @@
-
-  
+ 
 .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -51,12 +50,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  min-height: 100vh;
-}
 
 .footer {
   position: relative;

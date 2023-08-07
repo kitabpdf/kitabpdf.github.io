@@ -55,6 +55,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  min-height: 100vh;
 }
 
 .footer {

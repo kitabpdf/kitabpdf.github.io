@@ -52,11 +52,7 @@ footer {
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+
 
 h2{
 	text-align: center;

@@ -24,7 +24,7 @@
   <div id="pdf"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
   <script>
-    const url = 'Tanrı'nın Tarihi - Karen Armstrong @cinciva.pdf ';
+    const url = 'tanritarih.pdf';
     const container = document.getElementById('pdf');
     pdfjsLib.getDocument(url).promise.then(pdf => {
       for (let i = 1; i <= pdf.numPages; i++) {

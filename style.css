@@ -114,71 +114,79 @@ footer {
 
 
 
-
-ul {
+.card {
   position:absolute;
-  top:90%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  margin:0;
-  padding:0;
-  display:flex;
-  
+  botom:0;	
+  width: 100%;
+  height: fit-content;
+  background-color: #aaa ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
 }
 
-ul li {
-  list-style: none;
-}
-
-ul li a {
-  position: relative;
-  width:60px;
-  height:60px;
-  display:block;
-  text-align:center;
-  margin:0 10px;
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  padding: 6px;
-  box-sizing: border-box;
-  text-decoration:none;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
-  background: linear-gradient(0deg, #ddd, #fff);
-  transition: .5s;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
 }
 
-ul li a:hover {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  text-decoration:none;
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
 }
 
-ul li a .fab {
-  widht: 100%;
-  height:100%;
-  display:block;
-  background: linear-gradient(0deg, #fff, #ddd);
-  border-radius: 50%;
-  line-height: calc(60px - 12px);
-  font-size:24px;
-  color: #262626;
-  transition: .5s;
+.socialSvg {
+  width: 17px;
 }
 
-ul li:nth-child(1) a:hover .fab {
-  color: #3b5998;
+.socialSvg path {
+  fill: rgb(255, 255, 255);
 }
 
-ul li:nth-child(2) a:hover .fab {
-  color: #00aced;
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
 }
 
-ul li:nth-child(3) a:hover .fab {
-  color: #dd4b39;
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-ul li:nth-child(4) a:hover .fab {
-  color: #007bb6;
-}
-
-ul li:nth-child(5) a:hover .fab {
-  color: #e4405f;
-}

@@ -114,12 +114,12 @@ footer {
 
 
 
-.card {
-  position:absolute;
-  botom:0;	
+.card {	
   width: 100%;
   height: fit-content;
   background-color: #aaa ;
+  position:absolute;
+  top:100%;
   display: flex;
   align-items: center;
   justify-content: center;
